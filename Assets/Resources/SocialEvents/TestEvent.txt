@@ -1,4 +1,4 @@
-~{1}Jennifer|what a week[yep, lol][it's only wednesday][frick]~
-~{4}Alex|howdy[yeehaw][yes, Alex]~
-~{3}Wendy|buy my burgers[burger][no wendy]~
-~{2}slenderman|collect my pages[...]~
+~{0}Jennifer|what a week[yep, lol][it's only wednesday][frick]~
+~{3}Alex|howdy[yeehaw][yes, Alex]~
+~{2}Wendy|buy my burgers[burger][no wendy]~
+~{1}slenderman|collect my pages[...]~
