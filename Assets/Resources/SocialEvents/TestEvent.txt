@@ -1,0 +1,4 @@
+~{3}Person|howdy[yeehaw][yes, Alex]~
+~{2}Person|buy my burgers[burger][no wendy]~
+~{1}Person|collect my pages[...]~
+~{0}Person|what a week[yep, lol][it's only wednesday][frick]~

@@ -2410,6 +2410,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 714320999}
     m_Modifications:
+    - target: {fileID: 557970631855757587, guid: 86d6992a6b37b6e4fa6ad258f6c47857, type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2194693352213634344, guid: 86d6992a6b37b6e4fa6ad258f6c47857, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002072467014058700, guid: 86d6992a6b37b6e4fa6ad258f6c47857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5560073675052126039, guid: 86d6992a6b37b6e4fa6ad258f6c47857, type: 3}
       propertyPath: m_Name
       value: MessagesApp
@@ -2417,6 +2429,10 @@ PrefabInstance:
     - target: {fileID: 5560073675052126039, guid: 86d6992a6b37b6e4fa6ad258f6c47857, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678110919711545434, guid: 86d6992a6b37b6e4fa6ad258f6c47857, type: 3}
+      propertyPath: characterName
+      value: Person
       objectReference: {fileID: 0}
     - target: {fileID: 5711561571605033380, guid: 86d6992a6b37b6e4fa6ad258f6c47857, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2457,6 +2473,10 @@ PrefabInstance:
     - target: {fileID: 5711561571605033380, guid: 86d6992a6b37b6e4fa6ad258f6c47857, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985886054532310194, guid: 86d6992a6b37b6e4fa6ad258f6c47857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2933,6 +2953,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299943331}
   m_CullTransparentMesh: 1
+--- !u!114 &1403627172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5678110919711545434, guid: 86d6992a6b37b6e4fa6ad258f6c47857, type: 3}
+  m_PrefabInstance: {fileID: 1085844129}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea74415214eadb43b6afa261dc204fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1493549175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1493549177}
+  - component: {fileID: 1493549176}
+  m_Layer: 0
+  m_Name: SocialEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1493549176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493549175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7547ddcd3e47d4fac9897a57613a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allDialogueObjects:
+  - {fileID: 1403627172}
+--- !u!4 &1493549177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493549175}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1074.2711, y: 893.18756, z: -5.7254767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1513754743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3873,3 +3950,8 @@ SceneRoots:
   - {fileID: 1742361111}
   - {fileID: 714320999}
   - {fileID: 1606078007}
+<<<<<<< Updated upstream
+=======
+  - {fileID: 2122246732}
+  - {fileID: 1493549177}
+>>>>>>> Stashed changes
