@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TimeSlot : MonoBehaviour
+public class TimeSlot : MonoBehaviour, IDropHandler
 {
    public void OnDrop(PointerEventData _eventData)
     {
