@@ -25,6 +25,7 @@ public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData _eventData)
     {
+        Debug.Log("Dragging: " + gameObject.name);
         m_originalParent = transform.parent;
         transform.SetParent(m_canvas.transform, true);
         transform.SetAsLastSibling();
