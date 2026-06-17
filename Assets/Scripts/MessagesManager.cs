@@ -23,11 +23,8 @@ public class MessagesManager : MonoBehaviour
         //TODO: instantiate a text box for each message struct held by the dialogue object 
         for (int i = 0; i < m_currentConversation.receivedMessages.Count; i++)
         {
-<<<<<<< Updated upstream
             GameObject newMessage = Instantiate(m_messagePrefab, m_conversationScreen.transform.Find("Viewport").Find("Content"));
             newMessage.transform.position.Set(0, (i + 1.0f) * -m_messageSpacing, 0); //set the message position going down the screen
-=======
-            GameObject newMessage = Instantiate(m_messagePrefab, m_conversationContent.transform);
         }
 
         TextMessageInstance[] allTexts = m_conversationContent.GetComponentsInChildren<TextMessageInstance>();
@@ -39,7 +36,6 @@ public class MessagesManager : MonoBehaviour
             //move the message down the screen by its size plus standard message spacing
             allTexts[i].transform.localPosition = new Vector3(0, 
                 -m_messageOffset + (i * -(m_messageSpacing + allTexts[i].GetComponentInChildren<RectTransform>().sizeDelta.y)), 0);
->>>>>>> Stashed changes
         }
     }
 }
