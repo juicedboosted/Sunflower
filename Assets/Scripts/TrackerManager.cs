@@ -12,7 +12,7 @@ public class TrackerManager : MonoBehaviour
     public TMP_Text m_healthText;
 
     public int m_maxEnergy = 60;
-    public int m_minMaxEnergy = 20;
+    public int m_minMaxEnergy = 10;
 
     private int m_scheduledTasks = 0;
     private bool m_ranOutOfEnergy = false;
@@ -62,6 +62,7 @@ public class TrackerManager : MonoBehaviour
         if (m_energySlider.value <= 0)
         {
             m_ranOutOfEnergy = true;
+            m_healthSlider.value -= 10;
         }
 
         UpdateTracker();
@@ -72,11 +73,16 @@ public class TrackerManager : MonoBehaviour
     {
         if (m_ranOutOfEnergy)
         {
-            m_maxEnergy--;
+            m_maxEnergy -= 10;
             if (m_maxEnergy < m_minMaxEnergy)
             {
                 m_maxEnergy = m_minMaxEnergy;
             }
+        }
+
+        if (!m_ranOutOfEnergy && m_maxEnergy < 60)
+        {
+            m_maxEnergy += 10;
         }
 
         m_energySlider.maxValue = m_maxEnergy;
