@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '12:00
+  m_text: '00:00
 
 '
   m_isRightToLeft: 0
@@ -3022,7 +3022,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: DEBUG TEXT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5095,22 +5095,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_taskPrefab: {fileID: 1800039848}
   m_taskGroup: {fileID: 39777440}
-  m_timeSlotParent: {fileID: 0}
+  m_timeSlotParent: {fileID: 1664273750}
   m_trackerManager: {fileID: 1104678832}
   m_possibleTasks:
-  - m_taskName: Study
+  - m_taskName: Study 4 exam
     m_taskType: 0
     m_energyCost: 40
-  - m_taskName: Social
-    m_taskType: 1
-    m_energyCost: 30
-  - m_taskName: Chore
+  - m_taskName: Buy kitty stuff
     m_taskType: 2
     m_energyCost: 20
-  - m_taskName: Appointment
-    m_taskType: 3
+  - m_taskName: Do dishes
+    m_taskType: 2
     m_energyCost: 20
-  - m_taskName: Leisure
+  - m_taskName: Do laundry
+    m_taskType: 2
+    m_energyCost: 20
+  - m_taskName: Play games
+    m_taskType: 4
+    m_energyCost: 10
+  - m_taskName: Attend lecture
+    m_taskType: 0
+    m_energyCost: 30
+  - m_taskName: Hang with kitty
     m_taskType: 4
     m_energyCost: 10
   m_numberOfTasks: 4
@@ -5118,7 +5124,7 @@ MonoBehaviour:
   m_calendarAppPrefab: {fileID: 351853239}
   m_parentCanvas: {fileID: 714320999}
   m_dateText: {fileID: 626298584}
-  m_clock: {fileID: 0}
+  m_clock: {fileID: 389918931}
 --- !u!4 &2122246732
 Transform:
   m_ObjectHideFlags: 0
@@ -5312,7 +5318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: DEBUG TEXT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
