@@ -11,19 +11,6 @@ public class SocialEventLoader : MonoBehaviour
     private void Start() //TODO: this function only used for testing
     {
         SocialEvent coolEvent = LoadEvent("SocialEvents/TestEvent");
-        for (int i = 0; i < coolEvent.messages.Count; i++)
-        {
-            string debugMessage = coolEvent.messages[i].timeOfDay + "... " + coolEvent.messages[i].characterName + ": " + coolEvent.messages[i].message;
-            
-            // -- prints contents of the event --
-            //Debug.Log(debugMessage);
-
-            //for (int j = 0; j < coolEvent.messages[i].possibleResponses.Count; j++)
-            //{
-            //    debugMessage = "[" + coolEvent.messages[i].possibleResponses[j] + "]";
-            //    Debug.Log(debugMessage);
-            //}
-        }
     }
 
     public enum MessageTime
@@ -139,8 +126,16 @@ public class SocialEventLoader : MonoBehaviour
             {
                 if (allDialogueObjects[j].characterName == newEvent.messages[i].characterName)
                 {
-                    //TODO: change this to send to queued messages once time is implemented
-                    allDialogueObjects[j].receivedMessages.Add(newEvent.messages[i]);
+                    /* all messages that are to arrive the morning before the event are to be put straight 
+                    into the received messages list */
+                    if (newEvent.messages[i].timeOfDay == MessageTime.MORNINGBEFORE)
+                    {
+                        allDialogueObjects[j].receivedMessages.Add(newEvent.messages[i]);
+                    }
+                    else
+                    {
+                        allDialogueObjects[j].receivedMessages.Add(newEvent.messages[i]); //+make this queued messages
+                    }
                     break;
                 }
             }

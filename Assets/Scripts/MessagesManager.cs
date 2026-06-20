@@ -3,8 +3,15 @@ using System.Data;
 using TMPro;
 using UnityEngine;
 
+/*
+ TODO:
+- Make the difference between incoming and outgoing messages obvious
+ */
+
 public class MessagesManager : MonoBehaviour
 {
+    public float m_playerMessageOffsetX = 250.0f;
+
     public float m_messageOffset = 200.0f;
     public float m_messageSpacing = 100.0f;
 
@@ -35,8 +42,8 @@ public class MessagesManager : MonoBehaviour
         {
             //Set the message instance's text
             allTexts[i].GetComponentInChildren<TextMeshProUGUI>().text = m_currentConversation.receivedMessages[i].message;
-            //move the message down the screen by its size plus standard message spacing
-            allTexts[i].transform.localPosition = new Vector3(0, 
+            //move the message down the screen by its size plus standard message spacing, and along depending on if it is sent by the player or not
+            allTexts[i].transform.localPosition = new Vector3(m_currentConversation.receivedMessages[i].isSentByPlayer ? m_playerMessageOffsetX : 0, 
                 -m_messageOffset + (i * -(m_messageSpacing + allTexts[i].GetComponentInChildren<RectTransform>().sizeDelta.y)), 0);
         }
 
@@ -70,7 +77,7 @@ public class MessagesManager : MonoBehaviour
         GameObject newMessageInstance = Instantiate(m_messagePrefab, m_conversationScreen.transform.Find("Viewport").Find("Content"));
         int messageCount = m_conversationContent.transform.childCount + 1;
         newMessageInstance.GetComponentInChildren<TextMeshProUGUI>().text = responseAsMessage.message;
-        newMessageInstance.transform.localPosition = new Vector3(0,
+        newMessageInstance.transform.localPosition = new Vector3(m_playerMessageOffsetX,
                 (messageCount * -(m_messageSpacing + newMessageInstance.GetComponentInChildren<RectTransform>().sizeDelta.y)), 0);
 
         //Hide response buttons
@@ -102,5 +109,25 @@ public class MessagesManager : MonoBehaviour
         //Switch which screen is visible
         m_conversationListScreen.SetActive(true);
         m_conversationScreen.SetActive(false);
+    }
+
+    public void AdvanceTime(int _newTime) //Takes in an int to make unity buttons work
+    {
+        //get all conversations
+        DialogueObject[] allConversations = m_conversationListScreen.GetComponentsInChildren<DialogueObject>();
+        //for each conversation, iterate through its queued messages
+        for (int i = 0; i < allConversations.Length; i++)
+        {
+            for (int j = 0; j < allConversations[i].queuedMessages.Count; j++)
+            {
+                //if any of them are meant to send at the new time, move them to the received messages section
+                if (allConversations[i].queuedMessages[j].timeOfDay == (SocialEventLoader.MessageTime)_newTime)
+                {
+                    allConversations[i].receivedMessages.Add(allConversations[i].queuedMessages[j]);
+                    allConversations[i].queuedMessages.RemoveAt(j);
+                }
+            }
+
+        }
     }
 }
