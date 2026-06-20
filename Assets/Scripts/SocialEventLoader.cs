@@ -134,7 +134,7 @@ public class SocialEventLoader : MonoBehaviour
                     }
                     else
                     {
-                        allDialogueObjects[j].receivedMessages.Add(newEvent.messages[i]); //+make this queued messages
+                        allDialogueObjects[j].queuedMessages.Add(newEvent.messages[i]);
                     }
                     break;
                 }
