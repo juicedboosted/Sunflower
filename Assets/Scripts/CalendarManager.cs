@@ -3,13 +3,17 @@ using System.Globalization;
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
-
 using UnityEditor;
 
 public class CalendarManager : MonoBehaviour
 {
+    //TOMORROW TASK LIST
+    private List<TaskData> m_tomorrowTasks = new List<TaskData>();
+
+
     public GameObject m_taskPrefab;
     public Transform m_taskGroup;
+    public Transform m_timeSlotParent;
 
     public TrackerManager m_trackerManager;
     public List<TaskData> m_possibleTasks = new List<TaskData>();
@@ -19,6 +23,8 @@ public class CalendarManager : MonoBehaviour
     public GameObject m_calendarAppPrefab;
     public Transform m_parentCanvas;
     public TMP_Text m_dateText;
+
+    public Clock m_clock;
 
     private int m_dayNumber = 1;
 
@@ -69,6 +75,18 @@ public class CalendarManager : MonoBehaviour
                 draggableTask.SetTask(selectedTask.m_taskName, selectedTask.m_energyCost);
             }
             tempTasks.RemoveAt(randomIndex);
+
+            // TOMORROW TASK QUEUE
+            foreach (TaskData queuedTask in m_tomorrowTasks)
+            {
+                GameObject tomorrowTask = Instantiate(m_taskPrefab, m_taskGroup);
+                DraggableTask tomorrowDraggableTask = tomorrowTask.GetComponent<DraggableTask>();
+                if (tomorrowDraggableTask != null)
+                {
+                    tomorrowDraggableTask.SetTask(queuedTask.m_taskName, queuedTask.m_energyCost);
+                }
+            }
+            m_tomorrowTasks.Clear();
         }
     }
 
@@ -76,18 +94,24 @@ public class CalendarManager : MonoBehaviour
     {
         m_dayNumber++;
         m_trackerManager.StartNextDay();
-        //ClearTimeSlots
+        ClearTimeSlots();
         GenerateRandomTasks();
+        m_clock.ResetClock();
         UpdateDateText();
     }
 
     public void ClearTimeSlots()
     {
-        TimeSlot[] slots = FindObjectsByType<TimeSlot>(FindObjectsSortMode.None);
-        foreach (TimeSlot slot in slots)
+        if (m_timeSlotParent == null)
         {
-            foreach (Transform child in slot.transform)
+            return;
+        }
+
+        foreach (Transform slot in m_timeSlotParent)
+        {
+            for (int i = slot.childCount - 1; i >= 0; i--)
             {
+                Transform child = slot.GetChild(i);
                 if (child.GetComponent<DraggableTask>() != null)
                 {
                     Destroy(child.gameObject);
@@ -102,6 +126,17 @@ public class CalendarManager : MonoBehaviour
         {
             m_dateText.text = "Day " + m_dayNumber;
         }
+    }
+
+    // TOMORROW TASK ADD FUNCTION
+    public void AddTomorrowTask(string _taskName, int _energyCost)
+    {
+        TaskData tomorrowTask = new TaskData();
+        tomorrowTask.m_taskName = _taskName;
+        tomorrowTask.m_energyCost = _energyCost;
+
+        m_tomorrowTasks.Add(tomorrowTask);
+        Debug.Log("Task added for tomorrow!!! -> " + _taskName);
     }
 }
 

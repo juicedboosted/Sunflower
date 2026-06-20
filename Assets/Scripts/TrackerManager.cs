@@ -12,6 +12,7 @@ public class TrackerManager : MonoBehaviour
     public TMP_Text m_healthText;
 
     public int m_maxEnergy = 60;
+    public int m_maxHealth = 60;
     public int m_minMaxEnergy = 10;
 
     private int m_scheduledTasks = 0;
@@ -29,7 +30,7 @@ public class TrackerManager : MonoBehaviour
         int health = Mathf.RoundToInt(m_healthSlider.value);
 
         m_energyText.text = "Energy: " + energy + "/" + m_maxEnergy;
-        m_healthText.text = "Health: " + health + "/" + m_maxEnergy;
+        m_healthText.text = "Health: " + health + "/" + m_maxHealth ;
 
         if (m_calendarEnergyText != null)
         {
@@ -73,7 +74,7 @@ public class TrackerManager : MonoBehaviour
     {
         if (m_ranOutOfEnergy)
         {
-            m_maxEnergy -= 10;
+            m_maxEnergy -= 20;
             if (m_maxEnergy < m_minMaxEnergy)
             {
                 m_maxEnergy = m_minMaxEnergy;

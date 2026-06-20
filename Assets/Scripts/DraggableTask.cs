@@ -8,6 +8,8 @@ public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public int m_energyCost;
     public TMP_Text m_taskText;
 
+    public bool m_hasSpentEnergy = false;
+
     
     
     private Canvas m_canvas;
