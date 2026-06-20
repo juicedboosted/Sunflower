@@ -18,6 +18,12 @@ public class TrackerManager : MonoBehaviour
     private int m_scheduledTasks = 0;
     private bool m_ranOutOfEnergy = false;
 
+    //DO THIS
+    public Image m_energyBattery;
+    public Sprite m_highEnergySprite;
+    public Sprite m_mediumEnergySprite;
+    public Sprite m_lowEnergySprite;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
