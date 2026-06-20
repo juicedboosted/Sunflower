@@ -26,7 +26,6 @@ public class MessagesManager : MonoBehaviour
         for (int i = 0; i < m_currentConversation.receivedMessages.Count; i++)
         {
             GameObject newMessage = Instantiate(m_messagePrefab, m_conversationScreen.transform.Find("Viewport").Find("Content"));
-            newMessage.transform.position.Set(0, (i + 1.0f) * -m_messageSpacing, 0); //set the message position going down the screen
         }
 
         //Load in all messages from this conversation
@@ -68,9 +67,17 @@ public class MessagesManager : MonoBehaviour
         Debug.Log("Responded with index " + _responseIndex);
 
         //Instantiate the new message in the content window
-        GameObject newMessage = Instantiate(m_messagePrefab, m_conversationScreen.transform.Find("Viewport").Find("Content"));
-        int messageCount = m_conversationContent.transform.childCount;
-        newMessage.transform.position.Set(0, (messageCount + 1.0f) * -m_messageSpacing, 0);
+        GameObject newMessageInstance = Instantiate(m_messagePrefab, m_conversationScreen.transform.Find("Viewport").Find("Content"));
+        int messageCount = m_conversationContent.transform.childCount + 1;
+        newMessageInstance.GetComponentInChildren<TextMeshProUGUI>().text = responseAsMessage.message;
+        newMessageInstance.transform.localPosition = new Vector3(0,
+                (messageCount * -(m_messageSpacing + newMessageInstance.GetComponentInChildren<RectTransform>().sizeDelta.y)), 0);
+
+        //Hide response buttons
+        for (int i = 0; i < m_responseButtons.Length; i++)
+        {
+            m_responseButtons[i].SetActive(false);
+        }
     }
 
     public void CloseConversation()
