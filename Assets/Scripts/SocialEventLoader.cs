@@ -37,6 +37,7 @@ public class SocialEventLoader : MonoBehaviour
     public struct EventMessage
     {
         public string characterName;
+        public bool isSentByPlayer;
         public string message;
         public List<string> possibleResponses;
         public MessageTime timeOfDay;
@@ -77,6 +78,7 @@ public class SocialEventLoader : MonoBehaviour
                 {
                     //prepare a new message to add
                     currentMessage = new EventMessage();
+                    currentMessage.isSentByPlayer = false;
                     currentMessage.possibleResponses = new List<string>();
                     enteringMessageStruct = true;
                     enteringCharacterName = true;

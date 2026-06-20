@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Data;
 using TMPro;
 using UnityEngine;
 
@@ -8,12 +9,13 @@ public class MessagesManager : MonoBehaviour
     public float m_messageSpacing = 100.0f;
 
     private DialogueObject m_currentConversation = null;
-    private List<GameObject> m_currentMessages;
 
     [SerializeField] GameObject m_conversationScreen;
     [SerializeField] GameObject m_conversationListScreen;
     [SerializeField] GameObject m_conversationContent;
     [SerializeField] GameObject m_messagePrefab;
+
+    [SerializeField] GameObject[] m_responseButtons;
 
     public void OpenConversation(DialogueObject _conversation)
     {
@@ -27,6 +29,7 @@ public class MessagesManager : MonoBehaviour
             newMessage.transform.position.Set(0, (i + 1.0f) * -m_messageSpacing, 0); //set the message position going down the screen
         }
 
+        //Load in all messages from this conversation
         TextMessageInstance[] allTexts = m_conversationContent.GetComponentsInChildren<TextMessageInstance>();
 
         for (int i = 0; i < allTexts.Length; i++)
@@ -37,5 +40,60 @@ public class MessagesManager : MonoBehaviour
             allTexts[i].transform.localPosition = new Vector3(0, 
                 -m_messageOffset + (i * -(m_messageSpacing + allTexts[i].GetComponentInChildren<RectTransform>().sizeDelta.y)), 0);
         }
+
+        //Load in responses to the last message
+        List<string> allResponses = m_currentConversation.receivedMessages[m_currentConversation.receivedMessages.Count - 1].possibleResponses;
+        for (int i = 0; i < allResponses.Count; i++) //for each possible response, make a response button visible
+        {
+            if (i >= m_responseButtons.Length) //break if there are more responses than response buttons
+            {
+                break;
+            }
+
+            m_responseButtons[i].SetActive(true);
+            m_responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = allResponses[i];
+        }
+    }
+
+    public void RespondToMessage(int _responseIndex)
+    {
+        //Create a new message with the response text from the player and add it to this conversation's received messages
+        SocialEventLoader.EventMessage responseAsMessage = new SocialEventLoader.EventMessage();
+        responseAsMessage.characterName = m_currentConversation.characterName;
+        responseAsMessage.message = m_responseButtons[_responseIndex].GetComponentInChildren<TextMeshProUGUI>().text;
+        responseAsMessage.isSentByPlayer = true;
+        responseAsMessage.possibleResponses = new List<string>();
+
+        m_currentConversation.receivedMessages.Add(responseAsMessage);
+        Debug.Log("Responded with index " + _responseIndex);
+
+        //Instantiate the new message in the content window
+        GameObject newMessage = Instantiate(m_messagePrefab, m_conversationScreen.transform.Find("Viewport").Find("Content"));
+        int messageCount = m_conversationContent.transform.childCount;
+        newMessage.transform.position.Set(0, (messageCount + 1.0f) * -m_messageSpacing, 0);
+    }
+
+    public void CloseConversation()
+    {
+        //hide the response buttons
+        for (int i = 0; i < m_responseButtons.Length; i++)
+        {
+            m_responseButtons[i].SetActive(false);
+        }
+
+        //unload all text message instances
+        TextMessageInstance[] allMessages = m_conversationContent.GetComponentsInChildren<TextMessageInstance>();
+
+        for (int i = 0; i < allMessages.Length; i++)
+        {
+            Destroy(allMessages[i].gameObject);
+        }
+
+        //unassign the current conversation
+        m_currentConversation = null;
+
+        //Switch which screen is visible
+        m_conversationListScreen.SetActive(true);
+        m_conversationScreen.SetActive(false);
     }
 }
