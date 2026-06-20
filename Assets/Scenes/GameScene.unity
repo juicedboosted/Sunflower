@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 132814862}
   - component: {fileID: 132814861}
   m_Layer: 5
-  m_Name: Button (6)
+  m_Name: HomeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 132814862}
   m_OnClick:
     m_PersistentCalls:
@@ -879,7 +879,7 @@ GameObject:
   - component: {fileID: 245474691}
   - component: {fileID: 245474690}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: CalendarButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1735,6 +1735,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_clockText: {fileID: 344620061}
+  m_startHour: 7
+  m_startMinute: 0
 --- !u!4 &389918932
 Transform:
   m_ObjectHideFlags: 0
@@ -2617,8 +2619,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -0.41719055, y: 0}
+  m_SizeDelta: {x: -5.0453, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &769687276
 GameObject:
@@ -3196,6 +3198,7 @@ MonoBehaviour:
   m_calendarEnergyText: {fileID: 409330788}
   m_healthText: {fileID: 1084701085}
   m_maxEnergy: 60
+  m_maxHealth: 60
   m_minMaxEnergy: 20
 --- !u!4 &1104678833
 Transform:
@@ -3225,7 +3228,7 @@ GameObject:
   - component: {fileID: 1113172269}
   - component: {fileID: 1113172268}
   m_Layer: 5
-  m_Name: Button (7)
+  m_Name: SettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3290,7 +3293,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1113172269}
   m_OnClick:
     m_PersistentCalls:
@@ -3777,8 +3780,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 0.84161377, y: -0.000018119812}
+  m_SizeDelta: {x: 1.6832, y: -0.7384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1299943333
 MonoBehaviour:
@@ -4473,7 +4476,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 0
   m_TargetGraphic: {fileID: 1607637893}
-  m_FillRect: {fileID: 0}
+  m_FillRect: {fileID: 1299943332}
   m_HandleRect: {fileID: 1607637892}
   m_Direction: 0
   m_MinValue: 0
@@ -4887,9 +4890,9 @@ RectTransform:
   - {fileID: 1758591193}
   - {fileID: 407585298}
   - {fileID: 1568027280}
-  - {fileID: 1710031002}
   - {fileID: 1084701084}
   - {fileID: 2115868639}
+  - {fileID: 1710031002}
   - {fileID: 2127631216}
   - {fileID: 314536717}
   - {fileID: 245474689}
@@ -5092,6 +5095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_taskPrefab: {fileID: 1800039848}
   m_taskGroup: {fileID: 39777440}
+  m_timeSlotParent: {fileID: 0}
   m_trackerManager: {fileID: 1104678832}
   m_possibleTasks:
   - m_taskName: Study
@@ -5114,6 +5118,7 @@ MonoBehaviour:
   m_calendarAppPrefab: {fileID: 351853239}
   m_parentCanvas: {fileID: 714320999}
   m_dateText: {fileID: 626298584}
+  m_clock: {fileID: 0}
 --- !u!4 &2122246732
 Transform:
   m_ObjectHideFlags: 0
@@ -5142,7 +5147,7 @@ GameObject:
   - component: {fileID: 2123361422}
   - component: {fileID: 2123361421}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: HealthButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
