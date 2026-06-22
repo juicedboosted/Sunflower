@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What should I do today...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f805c3d25d6cef44b853d6e8c960302e, type: 2}
+  m_sharedMaterial: {fileID: -65459200144406100, guid: f805c3d25d6cef44b853d6e8c960302e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2069,6 +2069,7 @@ MonoBehaviour:
   m_dateText: {fileID: 0}
   m_clock: {fileID: 0}
   m_fadeManager: {fileID: 0}
+  m_SocialEventLoader: {fileID: 0}
 --- !u!1 &6581908497111062102
 GameObject:
   m_ObjectHideFlags: 0
