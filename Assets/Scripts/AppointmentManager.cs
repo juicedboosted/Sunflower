@@ -24,6 +24,8 @@ public class AppointmentManager : MonoBehaviour
 
     [SerializeField] private List<Prescription> m_Prescriptions = new List<Prescription>();
 
+    [SerializeField] private HealthManager m_HealthManager;
+
     private int m_Option1Index;
     private int m_Option2Index;
 
@@ -34,8 +36,6 @@ public class AppointmentManager : MonoBehaviour
 
     public void StartDialogue()
     {
-        m_DrResponseText.text = "";
-
         m_Option1Button.gameObject.SetActive(true);
         m_Option2Button.gameObject.SetActive(true);
         m_OkEndButton.gameObject.SetActive(false);
@@ -102,6 +102,15 @@ public class AppointmentManager : MonoBehaviour
             return; // don't do anything if no prescription is assigned to that dialogue option (symptom)
         }
 
+        // Check if the item already exists in the list
+        foreach (Prescription p in m_Prescriptions)
+        {
+            if (p.m_PrescriptionName == _option.m_prescriptionName)
+            {
+                return; // stop here if item is already in list
+            }
+        }
+
         Prescription newPrescription = new Prescription();
         newPrescription.m_PrescriptionName = _option.m_prescriptionName;
         newPrescription.m_PrescriptionQuantity = _option.m_prescriptionQuantity;
@@ -111,7 +120,8 @@ public class AppointmentManager : MonoBehaviour
 
     public void CloseAppt()
     {
-        gameObject.SetActive(false);
+        m_HealthManager.OpenBookingPage();
+        Debug.Log("ok was pressed");
     }
 
     public List<Prescription> GetPrescriptions()
