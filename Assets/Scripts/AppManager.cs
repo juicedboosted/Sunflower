@@ -9,7 +9,6 @@ public class AppManager : MonoBehaviour
     {
         activeApp = app;
         app.SetActive(true);
-        m_HomeScreen.SetActive(false);
     }
 
     public void CloseApp()
@@ -19,7 +18,5 @@ public class AppManager : MonoBehaviour
             activeApp.SetActive(false);
             activeApp = null; 
         }
-
-        m_HomeScreen.SetActive(true);
     }
 }

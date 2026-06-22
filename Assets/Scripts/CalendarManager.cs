@@ -32,7 +32,7 @@ public class CalendarManager : MonoBehaviour
 
     [SerializeField] SocialEventLoader m_SocialEventLoader;
 
-    private int m_dayNumber = 1;
+    private int m_dayNumber = 0;
     private string[] m_daysOfWeek =
     {
         "Monday",
@@ -112,6 +112,7 @@ public class CalendarManager : MonoBehaviour
         }
 
         m_dayNumber++;
+        Debug.Log("Day number " + m_dayNumber);
         m_trackerManager.StartNextDay();
         ClearTimeSlots();
         GenerateRandomTasks();
@@ -120,29 +121,24 @@ public class CalendarManager : MonoBehaviour
 
         switch (m_dayNumber)
         {
-            case 0:
-                {
-                    m_SocialEventLoader.LoadEvent("SocialEvents/Day0.txt");
-                    break;
-                }
             case 1:
                 {
-                    m_SocialEventLoader.LoadEvent("SocialEvents/Day1.txt");
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day1");
                     break;
                 }
             case 2:
                 {
-                    m_SocialEventLoader.LoadEvent("SocialEvents/Day2.txt");
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day2");
                     break;
                 }
             case 3:
                 {
-                    m_SocialEventLoader.LoadEvent("SocialEvents/Day3.txt");
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day3");
                     break;
                 }
             case 4:
                 {
-                    m_SocialEventLoader.LoadEvent("SocialEvents/Day4.txt");
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day4");
                     break;
                 }
             default:

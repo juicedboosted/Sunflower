@@ -38,6 +38,12 @@ public class MessagesManager : MonoBehaviour
         //Load in all messages from this conversation
         TextMessageInstance[] allTexts = m_conversationContent.GetComponentsInChildren<TextMessageInstance>();
 
+        //Return here if there are no messages as the following code will break in that circumstance
+        if (allTexts.Length < 1)
+        {
+            return;
+        }
+
         for (int i = 0; i < allTexts.Length; i++)
         {
             //Set the message instance's text
