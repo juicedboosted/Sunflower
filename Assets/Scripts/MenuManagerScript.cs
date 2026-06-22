@@ -8,6 +8,10 @@ public class MenuManagerScript : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void Options()
+    {
+        //SceneManager.LoadScene(Options)
+    }
 
     public void QuitGame()
     {
@@ -15,23 +19,4 @@ public class MenuManagerScript : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

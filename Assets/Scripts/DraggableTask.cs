@@ -1,16 +1,16 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public string m_taskName;
     public int m_energyCost;
     public TMP_Text m_taskText;
+    public Image[] m_energyBolts;
 
     public bool m_hasSpentEnergy = false;
-
-    
     
     private Canvas m_canvas;
     private RectTransform m_rectTransform;
@@ -54,6 +54,16 @@ public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         m_taskName = _name;
         m_energyCost = _cost;
-        m_taskText.text = m_taskName + " -" + m_energyCost;
+        m_taskText.text = m_taskName;
+        UpdateEnergyIcons();
+    }
+
+    public void UpdateEnergyIcons()
+    {
+        int bolts = m_energyCost / 10;
+        for (int i = 0; i < m_energyBolts.Length; i++)
+        {
+            m_energyBolts[i].gameObject.SetActive(i < bolts);
+        }
     }
 }
