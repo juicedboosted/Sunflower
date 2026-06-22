@@ -27,6 +27,14 @@ public class CalendarManager : MonoBehaviour
     public Clock m_clock;
 
     private int m_dayNumber = 1;
+    private string[] m_daysOfWeek =
+    {
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+    };
 
     void Start()
     {
@@ -92,6 +100,12 @@ public class CalendarManager : MonoBehaviour
 
     public void NextDay()
     {
+        if (m_dayNumber >= 5)
+        {
+            //end stuff
+            return;
+        }
+
         m_dayNumber++;
         m_trackerManager.StartNextDay();
         ClearTimeSlots();
@@ -124,7 +138,8 @@ public class CalendarManager : MonoBehaviour
     {
         if (m_dateText != null)
         {
-            m_dateText.text = "Day " + m_dayNumber;
+            int dayIndex = Mathf.Clamp(m_dayNumber - 1, 0, m_daysOfWeek.Length - 1);
+            m_dateText.text = m_daysOfWeek[dayIndex];
         }
     }
 
