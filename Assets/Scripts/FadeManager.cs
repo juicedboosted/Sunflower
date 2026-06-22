@@ -8,6 +8,10 @@ public class FadeManager : MonoBehaviour
     public float m_fadeDuration= 3f;
 
 
+    public GameObject m_endPanel;
+    public TypeWriterEffect m_typewriter;
+
+    public string m_endMessage;
 
     public void FadeToBlack()
     {
@@ -31,5 +35,7 @@ public class FadeManager : MonoBehaviour
         color.a = 1f;
         m_fadeImage.color = color;
 
+        m_endPanel.SetActive(true);
+        m_typewriter.DisplayText(m_endMessage);
     }
 }
