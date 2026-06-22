@@ -18,11 +18,11 @@ public class TrackerManager : MonoBehaviour
     private int m_scheduledTasks = 0;
     private bool m_ranOutOfEnergy = false;
 
-    //DO THIS
     public Image m_energyBattery;
     public Sprite m_highEnergySprite;
     public Sprite m_mediumEnergySprite;
     public Sprite m_lowEnergySprite;
+    public Sprite m_zeroEnergySprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +34,23 @@ public class TrackerManager : MonoBehaviour
     {
         int energy = Mathf.RoundToInt(m_energySlider.value);
         int health = Mathf.RoundToInt(m_healthSlider.value);
+
+        if (energy >= 40)
+        {
+            m_energyBattery.sprite = m_highEnergySprite;
+        }
+        else if (energy >= 20)
+        {
+            m_energyBattery.sprite = m_mediumEnergySprite;
+        }
+        else if (energy > 0)
+        {
+            m_energyBattery.sprite = m_lowEnergySprite;
+        }
+        else
+        {
+            m_energyBattery.sprite = m_zeroEnergySprite;
+        }
 
         m_energyText.text = "Energy: " + energy + "/" + m_maxEnergy;
         m_healthText.text = "Health: " + health + "/" + m_maxHealth ;
