@@ -13,7 +13,7 @@ public class TrackerManager : MonoBehaviour
 
     public int m_maxEnergy = 60;
     public int m_maxHealth = 60;
-    public int m_minMaxEnergy = 10;
+    public int m_minMaxEnergy = 0;
 
     private int m_scheduledTasks = 0;
     private bool m_ranOutOfEnergy = false;
@@ -35,11 +35,11 @@ public class TrackerManager : MonoBehaviour
         int energy = Mathf.RoundToInt(m_energySlider.value);
         int health = Mathf.RoundToInt(m_healthSlider.value);
 
-        if (energy >= 40)
+        if (energy > 40)
         {
             m_energyBattery.sprite = m_highEnergySprite;
         }
-        else if (energy >= 20)
+        else if (energy > 20)
         {
             m_energyBattery.sprite = m_mediumEnergySprite;
         }
