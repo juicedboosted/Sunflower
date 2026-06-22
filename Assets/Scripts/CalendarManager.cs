@@ -30,6 +30,8 @@ public class CalendarManager : MonoBehaviour
 
     public FadeManager m_fadeManager;
 
+    [SerializeField] SocialEventLoader m_SocialEventLoader;
+
     private int m_dayNumber = 1;
     private string[] m_daysOfWeek =
     {
@@ -115,6 +117,39 @@ public class CalendarManager : MonoBehaviour
         GenerateRandomTasks();
         m_clock.ResetClock();
         UpdateDateText();
+
+        switch (m_dayNumber)
+        {
+            case 0:
+                {
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day0.txt");
+                    break;
+                }
+            case 1:
+                {
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day1.txt");
+                    break;
+                }
+            case 2:
+                {
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day2.txt");
+                    break;
+                }
+            case 3:
+                {
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day3.txt");
+                    break;
+                }
+            case 4:
+                {
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day4.txt");
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
     }
 
     public void ClearTimeSlots()

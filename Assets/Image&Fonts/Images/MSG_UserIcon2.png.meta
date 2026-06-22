@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fbdf372e9c917914c94721acfbf994d3
+guid: 78c1f4f1e79b1b643af96b520edb7d5b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2102911276052501004
-    second: Phone_AppHealth_0
+      213: 1911549993525896448
+    second: MSG_UserIcon2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Phone_AppHealth_0
+      name: MSG_UserIcon2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 97
-        height: 94
+        width: 85
+        height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4fd2abc0655f0d2e0800000000000000
-      internalID: -2102911276052501004
+      spriteID: 005e28e5790378a10800000000000000
+      internalID: 1911549993525896448
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Phone_AppHealth_0: -2102911276052501004
+      MSG_UserIcon2_0: 1911549993525896448
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

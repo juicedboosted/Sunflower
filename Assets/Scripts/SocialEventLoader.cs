@@ -8,9 +8,9 @@ public class SocialEventLoader : MonoBehaviour
 {
     [SerializeField] DialogueObject[] allDialogueObjects;
 
-    private void Start() //TODO: this function only used for testing
+    private void Start()
     {
-        SocialEvent coolEvent = LoadEvent("SocialEvents/TestEvent");
+        LoadEvent("SocialEvents/Day0");
     }
 
     public enum MessageTime
