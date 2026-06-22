@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
+using System.Threading;
+using System.Diagnostics.CodeAnalysis;
 
 public class CalendarManager : MonoBehaviour
 {
@@ -25,6 +27,8 @@ public class CalendarManager : MonoBehaviour
     public TMP_Text m_dateText;
 
     public Clock m_clock;
+
+    public FadeManager m_fadeManager;
 
     private int m_dayNumber = 1;
     private string[] m_daysOfWeek =
@@ -102,8 +106,7 @@ public class CalendarManager : MonoBehaviour
     {
         if (m_dayNumber >= 5)
         {
-            //end stuff
-            return;
+            m_fadeManager.FadeToBlack();
         }
 
         m_dayNumber++;
