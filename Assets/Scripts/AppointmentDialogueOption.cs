@@ -1,11 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class AppointmentDialogueOption : MonoBehaviour
+public class AppointmentDialogueOption
 {
-    public string optionText;
-    public string drResponseText;
+    public string m_optionText;
+    public string m_drResponseText;
 
-    public string prescriptionName;
-    public string prescriptionQuantity;
+    public string m_prescriptionName;
+    public string m_prescriptionQuantity;
 }

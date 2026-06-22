@@ -44,8 +44,7 @@ public class HealthManager : MonoBehaviour
         m_bookingPage.SetActive(false);
         m_prescriptionPage.SetActive(false);
         m_virtualApptPage.SetActive(true);
-
-
+        // start dialogue system
     }
 
     // If the health app is open & not on the main page, the back button will go to the main health page rather than closing the app.
