@@ -14,7 +14,6 @@ public class AppointmentManager : MonoBehaviour
 
     [SerializeField] private List<AppointmentDialogueOption> m_DialogueOptions;
 
-    [SerializeField] private TMP_Text m_DrQuestionText;
     [SerializeField] private TMP_Text m_Option1Text;
     [SerializeField] private TMP_Text m_Option2Text;
     [SerializeField] private TMP_Text m_DrResponseText;
@@ -41,7 +40,7 @@ public class AppointmentManager : MonoBehaviour
         m_Option2Button.gameObject.SetActive(true);
         m_OkEndButton.gameObject.SetActive(false);
 
-        m_DrQuestionText.text = "Hi, what symptoms have you been experiencing recently?";
+        m_DrResponseText.text = "Hi, what symptoms have you been experiencing recently?";
 
         SelectTwoOptions();
         SetButtonText();
