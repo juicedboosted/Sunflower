@@ -204,15 +204,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 2060743350850633109, guid: 5d8a6fb5dff60494581ce27954866c94, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -932,15 +932,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -7410153563462093279, guid: 8fc1fa3d9d580ce43a8460efc7b3d601, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1070,8 +1070,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5836616296788468967}
   m_HandleRect: {fileID: 8879693823320798018}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.14516805
+  m_Value: -0.000000086016804
+  m_Size: 0.14505768
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1709,7 +1709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2838.2898}
+  m_AnchoredPosition: {x: 0, y: 2838.29}
   m_SizeDelta: {x: 0, y: 3320.2898}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &638281894679418805
@@ -1838,6 +1838,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9022356659883103296, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022356659883103296, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2034713613940643443, guid: 80a9edf56bb73434e9e6b65f4d5d0c94, type: 3}
     - target: {fileID: 9044478539310911865, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
       propertyPath: m_Name
       value: TextConversation (1)
@@ -2106,6 +2114,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9022356659883103296, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022356659883103296, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2034713613940643443, guid: 80a9edf56bb73434e9e6b65f4d5d0c94, type: 3}
     - target: {fileID: 9044478539310911865, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
       propertyPath: m_Name
       value: TextConversation (2)
@@ -2251,6 +2267,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9022356659883103296, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022356659883103296, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2034713613940643443, guid: 80a9edf56bb73434e9e6b65f4d5d0c94, type: 3}
     - target: {fileID: 9044478539310911865, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
       propertyPath: m_Name
       value: TextConversation (3)
@@ -2398,6 +2422,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9022356659883103296, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022356659883103296, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2034713613940643443, guid: 80a9edf56bb73434e9e6b65f4d5d0c94, type: 3}
     - target: {fileID: 9044478539310911865, guid: 35d5e07a6b071c7479066b29fd69ea11, type: 3}
       propertyPath: m_Name
       value: TextConversation
