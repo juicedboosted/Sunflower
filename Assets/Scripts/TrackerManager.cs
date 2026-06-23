@@ -1,5 +1,7 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TrackerManager : MonoBehaviour
@@ -23,6 +25,8 @@ public class TrackerManager : MonoBehaviour
     public Sprite m_mediumEnergySprite;
     public Sprite m_lowEnergySprite;
     public Sprite m_zeroEnergySprite;
+
+    public TMP_Text m_energyWarningText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -78,6 +82,8 @@ public class TrackerManager : MonoBehaviour
         if (currentEnergy < _amount)
         {
             Debug.Log("Not enough energy!!!!");
+            StopCoroutine(nameof(ShowWarning));
+            StartCoroutine(ShowWarning());
             return false;
         }
 
@@ -114,6 +120,20 @@ public class TrackerManager : MonoBehaviour
         m_scheduledTasks = 0;
         m_ranOutOfEnergy = false;
         UpdateTracker();
+    }
+
+    public void GoCreditScene()
+    {
+        SceneManager.LoadScene("CreditScene");
+    }
+
+    public IEnumerator ShowWarning()
+    {
+        m_energyWarningText.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        m_energyWarningText.gameObject.SetActive(false);
     }
 
 }

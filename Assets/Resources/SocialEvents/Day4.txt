@@ -1,0 +1,5 @@
+~{0}Cara|do you even like us?~
+~{0}Cara|we're not even doing anything crazy like it's just the beach..~
+~{0}Cara|we never see you anymore its like you've completely changed[...][Cara..]~
+~{0}Wiremu|hey! maybe see you later?[yeah, i think so!!][nah, not up to it today]~
+~{0}Chips|are we meeting at your place today??[yeah, it'll be nice to see you and wiremu][no, not this time]~

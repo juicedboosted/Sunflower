@@ -1,9 +1,6 @@
-using NUnit.Framework;
-using System.Globalization;
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEditor;
 
 public class CalendarManager : MonoBehaviour
 {
@@ -26,7 +23,11 @@ public class CalendarManager : MonoBehaviour
 
     public Clock m_clock;
 
-    private int m_dayNumber = 1;
+    public FadeManager m_fadeManager;
+
+    [SerializeField] SocialEventLoader m_SocialEventLoader;
+
+    private int m_dayNumber = 0;
     private string[] m_daysOfWeek =
     {
         "Monday",
@@ -102,16 +103,44 @@ public class CalendarManager : MonoBehaviour
     {
         if (m_dayNumber >= 5)
         {
-            //end stuff
-            return;
+            m_fadeManager.FadeToBlack();
         }
 
         m_dayNumber++;
+        Debug.Log("Day number " + m_dayNumber);
         m_trackerManager.StartNextDay();
         ClearTimeSlots();
         GenerateRandomTasks();
         m_clock.ResetClock();
         UpdateDateText();
+
+        switch (m_dayNumber)
+        {
+            case 1:
+                {
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day1");
+                    break;
+                }
+            case 2:
+                {
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day2");
+                    break;
+                }
+            case 3:
+                {
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day3");
+                    break;
+                }
+            case 4:
+                {
+                    m_SocialEventLoader.LoadEvent("SocialEvents/Day4");
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
     }
 
     public void ClearTimeSlots()

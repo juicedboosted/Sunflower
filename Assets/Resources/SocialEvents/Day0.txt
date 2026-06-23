@@ -1,0 +1,8 @@
+~{0}Martin|Hey! It's been a little while! We should totally meet up for coffee tomorrow![omg hiii martin][yeah, coffee sounds good][we'll see...]~
+~{0}Cara|why didn't u come to drinks at the beach??~
+~{0}Cara|we missed having you there~
+~{0}Cara|pleaseee say you'll come next time[yes, cara, i'll come whenever][i was kinda busy, cara]~
+~{0}Wiremu|hey haven't seen a lot of you lately~
+~{0}Wiremu|have you been okay?~
+~{0}Wiremu|what you up to?[i got a lot going on right now][not too much, hbu]~
+~{0}Chips|i think im gay[girl you came out like a year ago][no wayyyy][who are you crushing on this time chips]~

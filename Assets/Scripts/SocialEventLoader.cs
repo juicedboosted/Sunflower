@@ -1,16 +1,13 @@
-using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEditor.Timeline;
-using Unity.VisualScripting.Dependencies.Sqlite;
 
 public class SocialEventLoader : MonoBehaviour
 {
     [SerializeField] DialogueObject[] allDialogueObjects;
 
-    private void Start() //TODO: this function only used for testing
+    private void Start()
     {
-        SocialEvent coolEvent = LoadEvent("SocialEvents/TestEvent");
+        LoadEvent("SocialEvents/Day0");
     }
 
     public enum MessageTime

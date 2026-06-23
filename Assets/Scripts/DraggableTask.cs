@@ -61,6 +61,7 @@ public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void UpdateEnergyIcons()
     {
         int bolts = m_energyCost / 10;
+        bolts = Mathf.Clamp(bolts, 0, m_energyBolts.Length);
         for (int i = 0; i < m_energyBolts.Length; i++)
         {
             m_energyBolts[i].gameObject.SetActive(i < bolts);

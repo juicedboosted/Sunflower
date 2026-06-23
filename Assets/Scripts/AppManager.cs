@@ -3,6 +3,7 @@ using UnityEngine;
 public class AppManager : MonoBehaviour
 {
     private GameObject activeApp = null;
+    public GameObject m_HomeScreen;
 
     public void OpenApp(GameObject app)
     {
