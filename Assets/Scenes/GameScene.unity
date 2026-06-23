@@ -238,11 +238,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 132814862}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 233859473}
+        m_TargetAssemblyTypeName: AppManager, Assembly-CSharp
+        m_MethodName: CloseApp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &132814862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,6 +2251,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498199646}
   m_CullTransparentMesh: 1
+--- !u!1 &506003124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1413290373918241084, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+  m_PrefabInstance: {fileID: 183925230874416265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &506003125 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+  m_PrefabInstance: {fileID: 183925230874416265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &514692586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,6 +2767,7 @@ RectTransform:
   - {fileID: 351853240}
   - {fileID: 1080475873}
   - {fileID: 1178313585}
+  - {fileID: 506003125}
   - {fileID: 1320467499}
   - {fileID: 1055015197}
   - {fileID: 1169641417}
@@ -4028,11 +4051,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1113172269}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 233859473}
+        m_TargetAssemblyTypeName: AppManager, Assembly-CSharp
+        m_MethodName: OpenApp
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 506003124}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1113172269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6551,6 +6586,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127631215}
   m_CullTransparentMesh: 1
+--- !u!1001 &183925230874416265
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 714320999}
+    m_Modifications:
+    - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -163.63293
+      objectReference: {fileID: 0}
+    - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -60.015194
+      objectReference: {fileID: 0}
+    - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.049194
+      objectReference: {fileID: 0}
+    - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413290373918241084, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_Name
+      value: SettingsApp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413290373918241084, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864179397889380212, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 279.4882
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864179397889380212, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 451.2761
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864179397889380212, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864179397889380212, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.6232
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
 --- !u!1001 &8521257320590090295
 PrefabInstance:
   m_ObjectHideFlags: 0
