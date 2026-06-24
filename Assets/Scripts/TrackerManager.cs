@@ -20,6 +20,7 @@ public class TrackerManager : MonoBehaviour
     private int m_scheduledTasks = 0;
     private bool m_ranOutOfEnergy = false;
 
+    //battery icons for visual energy representation
     public Image m_energyBattery;
     public Sprite m_highEnergySprite;
     public Sprite m_mediumEnergySprite;
@@ -39,6 +40,7 @@ public class TrackerManager : MonoBehaviour
         int energy = Mathf.RoundToInt(m_energySlider.value);
         int health = Mathf.RoundToInt(m_healthSlider.value);
 
+        //changes battery icons based on current energy level
         if (energy > 40)
         {
             m_energyBattery.sprite = m_highEnergySprite;
@@ -65,6 +67,7 @@ public class TrackerManager : MonoBehaviour
         }
     }
 
+    //records how many tasks are scheduled for the day
     public void AddScheduledTask()
     {
         m_scheduledTasks++;
@@ -79,6 +82,7 @@ public class TrackerManager : MonoBehaviour
         {
             return true;
         }
+        //prevent scheduling task if not enough energy
         if (currentEnergy < _amount)
         {
             Debug.Log("Not enough energy!!!!");
@@ -86,9 +90,10 @@ public class TrackerManager : MonoBehaviour
             StartCoroutine(ShowWarning());
             return false;
         }
-
+        //remove energy from player
         m_energySlider.value -= _amount;
 
+        //energy penalty when reaching 0 energy
         if (m_energySlider.value <= 0)
         {
             m_ranOutOfEnergy = true;
@@ -99,8 +104,10 @@ public class TrackerManager : MonoBehaviour
         return true;
     }
 
+    //reset daily values and apply energy recovery
     public void StartNextDay()
     {
+        //reduce max energy if player reached 0 yesterday
         if (m_ranOutOfEnergy)
         {
             m_maxEnergy -= 20;
@@ -109,12 +116,14 @@ public class TrackerManager : MonoBehaviour
                 m_maxEnergy = m_minMaxEnergy;
             }
         }
-
+        
+        //recover some max energy when keeping energy levels above 0
         if (!m_ranOutOfEnergy && m_maxEnergy < 60)
         {
             m_maxEnergy += 10;
         }
 
+        //reset daily tracking
         m_energySlider.maxValue = m_maxEnergy;
         m_energySlider.value = m_maxEnergy;
         m_scheduledTasks = 0;
@@ -127,6 +136,7 @@ public class TrackerManager : MonoBehaviour
         SceneManager.LoadScene("CreditScene");
     }
 
+    //show temp warning when player doesnt have enough energy for a task
     public IEnumerator ShowWarning()
     {
         m_energyWarningText.gameObject.SetActive(true);
