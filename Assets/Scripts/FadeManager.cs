@@ -14,11 +14,13 @@ public class FadeManager : MonoBehaviour
 
     public string m_endMessage;
 
+    //starts fading sequence
     public void FadeToBlack()
     {
         StartCoroutine(FadeSetup());
     }
 
+    //fades screen to black and display ending scene
     public IEnumerator FadeSetup()
     {
         float timer = 0f;
@@ -27,6 +29,7 @@ public class FadeManager : MonoBehaviour
         while (timer < m_fadeDuration)
         {
             timer += Time.deltaTime;
+            //slowly increases image transparency
             color.a = Mathf.Lerp(0f, 1f, timer/m_fadeDuration);
             m_fadeImage.color = color;
 
@@ -40,6 +43,7 @@ public class FadeManager : MonoBehaviour
         m_typewriter.DisplayText(m_endMessage);
     }
 
+    //start transition between days
     public void FadeToNextDay()
     {
         StartCoroutine(FadeUnfade());

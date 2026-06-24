@@ -1,19 +1,21 @@
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public class CalendarManager : MonoBehaviour
 {
-    //TOMORROW TASK LIST
+    //stores tasks to appear on the following day
     private List<TaskData> m_tomorrowTasks = new List<TaskData>();
 
-
+    //task generation and calendar UI
     public GameObject m_taskPrefab;
     public Transform m_taskGroup;
     public Transform m_timeSlotParent;
 
+    //managers player energy/health
     public TrackerManager m_trackerManager;
+
+    //selection of random tasks to be generated
     public List<TaskData> m_possibleTasks = new List<TaskData>();
     public int m_numberOfTasks = 4;
     
@@ -38,6 +40,7 @@ public class CalendarManager : MonoBehaviour
         "Friday"
     };
 
+    //initalises calendar display and generates tasks
     void Start()
     {
         m_dayNumber = 0;
@@ -62,12 +65,15 @@ public class CalendarManager : MonoBehaviour
         m_panel.SetActive(false);
     }
 
+    //creates a set of tasks everyday
     public void GenerateRandomTasks()
     {
         foreach (Transform child in m_taskGroup)
         {
+            //removes previous existing tasks
             Destroy(child.gameObject);
         }
+        //temporary list to avoid dupes
         List<TaskData> tempTasks = new List<TaskData>(m_possibleTasks);
 
         for (int i = 0; i < m_numberOfTasks; i++)
@@ -76,10 +82,13 @@ public class CalendarManager : MonoBehaviour
             {
                 return;
             }
+            //randomly select tasks 
             int randomIndex = Random.Range(0, tempTasks.Count);
             TaskData selectedTask = tempTasks[randomIndex];
 
             GameObject newTask = Instantiate(m_taskPrefab, m_taskGroup);
+
+            //create a task card
             DraggableTask draggableTask = newTask.GetComponent<DraggableTask>();
 
             if (draggableTask != null)
@@ -88,7 +97,7 @@ public class CalendarManager : MonoBehaviour
             }
             tempTasks.RemoveAt(randomIndex);
 
-            // TOMORROW TASK QUEUE
+            //generate tasks that were queued
             foreach (TaskData queuedTask in m_tomorrowTasks)
             {
                 GameObject tomorrowTask = Instantiate(m_taskPrefab, m_taskGroup);
@@ -102,8 +111,10 @@ public class CalendarManager : MonoBehaviour
         }
     }
 
+    //goes to next game day and refreshes calendar
     public void NextDay()
     {
+        //trigger ending sequence when friday is complete
         if (m_dayNumber >= m_daysOfWeek.Length - 1)
         {
             m_fadeManager.FadeToBlack();
@@ -116,12 +127,15 @@ public class CalendarManager : MonoBehaviour
 
         m_dayNumber++;
         Debug.Log("Day number " + m_dayNumber);
+
+        //reset player state and make new schedule
         m_trackerManager.StartNextDay();
         ClearTimeSlots();
         GenerateRandomTasks();
         m_clock.ResetClock();
         UpdateDateText();
 
+        //load social events depending on day
         switch (m_dayNumber)
         {
             case 1:
@@ -153,6 +167,7 @@ public class CalendarManager : MonoBehaviour
         }
     }
 
+    //remove all scheduled tasks
     public void ClearTimeSlots()
     {
         if (m_timeSlotParent == null)
@@ -182,7 +197,7 @@ public class CalendarManager : MonoBehaviour
         }
     }
 
-    // TOMORROW TASK ADD FUNCTION
+    //add task to queue to appear on the next day
     public void AddTomorrowTask(string _taskName, int _energyCost)
     {
         TaskData tomorrowTask = new TaskData();
