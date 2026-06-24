@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
@@ -7,10 +8,13 @@ public class MusicManager : MonoBehaviour
     public AudioClip m_creditMusic;
     private AudioSource m_audioSource;
 
+    private float m_soundEffectsVolume = 1f;
+
     private static MusicManager m_instance;
 
     void Start()
     {
+        
         PlayBackgroundMusic();
     }
 
@@ -25,7 +29,7 @@ public class MusicManager : MonoBehaviour
         m_instance = this;
         DontDestroyOnLoad(gameObject);
 
-        m_audioSource = GetComponent<AudioSource>();
+        LoadVolumeSettings();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -63,4 +67,29 @@ public class MusicManager : MonoBehaviour
         m_audioSource.loop = true;
         m_audioSource.Play();
     }
+
+    public void LoadVolumeSettings()
+    {
+        float musicVolume = PlayerPrefs.GetFloat("BackgroundMusicVolume", 1f);
+        m_soundEffectsVolume = PlayerPrefs.GetFloat("SoundEffectsVolume", 1f);
+        m_audioSource.volume = musicVolume;
+    }
+
+    public void SetMusicVolume(float _volume)
+    {
+        m_audioSource.volume = _volume;
+        PlayerPrefs.GetFloat("BackgroundMusicVolume", 1f);
+    }
+
+    public void SetSoundEffectsVolume(float _volume)
+    {
+        m_audioSource.volume = _volume;
+        PlayerPrefs.GetFloat("SoundEffectsVolume", 1f);
+    }
+
+    public float GetSoundEffectsVolume()
+    {
+        return m_soundEffectsVolume;
+    }
+
 }
