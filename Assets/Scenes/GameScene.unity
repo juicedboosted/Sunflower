@@ -2620,7 +2620,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 12.130676, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4930,8 +4930,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -212.46887, y: 342.36307}
-  m_SizeDelta: {x: 67.6837, y: 17.7527}
+  m_AnchoredPosition: {x: -202, y: 342.8}
+  m_SizeDelta: {x: 79.3732, y: 25.6928}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1320467500
 MonoBehaviour:
@@ -5171,14 +5171,14 @@ RectTransform:
   m_GameObject: {fileID: 1531120526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 62.0062, y: 62.063046, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 62.86, y: 62.91763, z: 1.0137696}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1436375106}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -343.51163, y: -35.833176}
+  m_AnchoredPosition: {x: -344.4, y: -35.833176}
   m_SizeDelta: {x: 7.0241, y: 12.0627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1531120528
@@ -6070,6 +6070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fadeImage: {fileID: 1055015195}
   m_fadeDuration: 3
+  m_betweenDaysFadeDuration: 1
   m_endPanel: {fileID: 1169641416}
   m_typewriter: {fileID: 872873324}
   m_endMessage: 'Congrats - You made it to the end of the week! Social isolation
