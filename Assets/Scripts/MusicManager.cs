@@ -61,7 +61,7 @@ public class MusicManager : MonoBehaviour
         {
             PlayCreditMusic();
         }
-        else if (_scene.name == "OptionsScene" || _scene.name == "GameScene") {
+        else if (_scene.name == "OptionsScene") {
             return;
         }
         else
