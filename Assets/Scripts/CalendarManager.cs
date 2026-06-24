@@ -185,7 +185,7 @@ public class CalendarManager : MonoBehaviour
         Debug.Log("Task added for tomorrow!!! -> " + _taskName);
     }
 
-    public bool HasAppointmentScheduled() // should add enum types to each task so this can be changed to check appointment types scheduled
+    public bool HasAppointmentScheduled()
     {
         foreach (Transform slot in m_timeSlotParent)
         {
@@ -197,5 +197,10 @@ public class CalendarManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public List<TaskData> GetTomorrowTasks()
+    {
+        return m_tomorrowTasks;
     }
 }

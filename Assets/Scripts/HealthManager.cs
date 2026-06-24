@@ -72,6 +72,15 @@ public class HealthManager : MonoBehaviour
 
     public void BookDrAppointment()
     {
+        foreach (TaskData task in calendarManager.GetTomorrowTasks())
+        {
+            if (task.m_taskType == TaskType.Appointment)
+            {
+                Debug.Log("Appointment already booked for tomorrow.");
+                return;
+            }
+        }
+
         calendarManager.AddTomorrowTask("Appointment", 40, TaskType.Appointment);
     }
 }
