@@ -10,7 +10,7 @@ public class MenuManagerScript : MonoBehaviour
 
     public void Options()
     {
-        //SceneManager.LoadScene(Options)
+        SceneManager.LoadScene("OptionsScene");
     }
 
     public void QuitGame()
