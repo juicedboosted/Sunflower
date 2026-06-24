@@ -11,6 +11,22 @@ public class AppManager : MonoBehaviour
         app.SetActive(true);
     }
 
+    public void BackButton()
+    {
+        MessagesManager messagesManagerComponent = activeApp.GetComponent<MessagesManager>();
+        if (messagesManagerComponent != null) //if the open app is the messages app
+        {
+            if (messagesManagerComponent.m_conversationScreen.activeSelf) //and the user is looking at a conversation
+            {
+                messagesManagerComponent.CloseConversation();
+                return;
+            }
+        }
+
+        //otherwise, close the app
+        CloseApp();
+    }
+
     public void CloseApp()
     {
         if (activeApp != null)

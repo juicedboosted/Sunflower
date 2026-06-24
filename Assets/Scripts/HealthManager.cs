@@ -60,7 +60,7 @@ public class HealthManager : MonoBehaviour
         }
         else
         {
-            appManager.CloseApp();
+            appManager.BackButton();
         }
     }
 }

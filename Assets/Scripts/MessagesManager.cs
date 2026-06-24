@@ -16,7 +16,7 @@ public class MessagesManager : MonoBehaviour
 
     private DialogueObject m_currentConversation = null;
 
-    [SerializeField] GameObject m_conversationScreen;
+    public GameObject m_conversationScreen;
     [SerializeField] GameObject m_conversationListScreen;
     [SerializeField] GameObject m_conversationContent;
     [SerializeField] GameObject m_messagePrefab;
