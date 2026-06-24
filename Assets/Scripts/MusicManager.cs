@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
     public AudioClip m_backgroundMusic;
     public AudioClip m_creditMusic;
     private AudioSource m_audioSource;
+    public GameObject m_clickSoundObject;
 
     private float m_soundEffectsVolume = 1f;
 
@@ -31,6 +31,18 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         HandleSceneMusic(SceneManager.GetActiveScene());
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            AudioSource clickSound = m_clickSoundObject.GetComponent<AudioSource>();
+            if (clickSound != null)
+            {
+                clickSound.Play();
+            }
+        }
     }
 
     private void OnSceneLoaded(Scene _scene, LoadSceneMode _mode)
