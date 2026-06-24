@@ -12,7 +12,8 @@ public class MusicManager : MonoBehaviour
 
     private static MusicManager m_instance;
 
-    public void Awake()
+    //initailsie music manager and prevent dupes
+    void Awake()
     {
         if (m_instance != null && m_instance != this)
         {
@@ -21,13 +22,16 @@ public class MusicManager : MonoBehaviour
         }
 
         m_instance = this;
+        //keep music playing across scenes
         DontDestroyOnLoad(gameObject);
         m_audioSource = GetComponent<AudioSource>();
 
         LoadVolumeSettings();
+        //listen for scene changes to update music
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    //play music
     void Start()
     {
         HandleSceneMusic(SceneManager.GetActiveScene());
@@ -50,6 +54,7 @@ public class MusicManager : MonoBehaviour
         HandleSceneMusic(_scene);
     }
 
+    //determines which music should be played
     private void HandleSceneMusic(Scene _scene)
     {
         if (_scene.name == "CreditScene")
@@ -90,6 +95,7 @@ public class MusicManager : MonoBehaviour
         m_audioSource.Play();
     }
 
+    //loads saved volume settings
     public void LoadVolumeSettings()
     {
         float musicVolume = PlayerPrefs.GetFloat("BackgroundMusicVolume", 1f);
@@ -100,13 +106,13 @@ public class MusicManager : MonoBehaviour
     public void SetMusicVolume(float _volume)
     {
         m_audioSource.volume = _volume;
-        PlayerPrefs.GetFloat("BackgroundMusicVolume", _volume);
+        PlayerPrefs.SetFloat("BackgroundMusicVolume", _volume);
     }
 
     public void SetSoundEffectsVolume(float _volume)
     {
         m_soundEffectsVolume = _volume;
-        PlayerPrefs.GetFloat("SoundEffectsVolume", _volume);
+        PlayerPrefs.SetFloat("SoundEffectsVolume", _volume);
     }
 
     public float GetSoundEffectsVolume()

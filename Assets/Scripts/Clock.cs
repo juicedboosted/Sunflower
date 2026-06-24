@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class Clock : MonoBehaviour
 {
+    //ingame time display
     public TMP_Text m_clockText;
 
+    //start time for each day
     public int m_startHour = 7;
     public int m_startMinute = 0;
 
+    //tracker for how much time has passed since day started
     private float m_elapsedTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,6 +32,7 @@ public class Clock : MonoBehaviour
         UpdateClockDisplay();
     }
 
+    //converts elapsed time into hours and minutes then updates the UI accordingly
     private void UpdateClockDisplay()
     {
         //m_elapsedTime / 60 -> if wanting real minutes

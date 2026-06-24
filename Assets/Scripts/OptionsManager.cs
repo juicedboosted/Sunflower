@@ -12,13 +12,14 @@ public class OptionsManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //finds the music manager object across scene change
         m_musicManager = FindFirstObjectByType<MusicManager>();
 
         if (m_musicManager == null)
         {
             return;
         }
-
+ 
         m_backgroundMusicSlider.value = m_musicManager.GetBackgroundMusicVolume();
         m_soundEffectsSlider.value = m_musicManager.GetSoundEffectsVolume();
         m_backgroundMusicSlider.onValueChanged.AddListener(m_musicManager.SetMusicVolume);
