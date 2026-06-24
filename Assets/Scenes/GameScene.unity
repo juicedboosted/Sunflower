@@ -3474,7 +3474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_text: {fileID: 823834759}
-  m_delay: 0.1
+  m_delay: 0.05
 --- !u!4 &872873325
 Transform:
   m_ObjectHideFlags: 0
@@ -6072,7 +6072,13 @@ MonoBehaviour:
   m_fadeDuration: 3
   m_endPanel: {fileID: 1169641416}
   m_typewriter: {fileID: 872873324}
-  m_endMessage: You made it to the end of the week!
+  m_endMessage: 'Congrats - You made it to the end of the week! Social isolation
+    has been found to be very common for chronically ill/disabled individuals. Living
+    like that can be lonely, and can take up all the energy they have just to keep
+    going. They are trying their best and they do want to spend more time with their
+    loved ones, but just don''t have the energy.   Remember to check in and be there
+    for your struggling friends and family. A text or a call really goes a long way,
+    even if they don''t always have the energy to respond. Don''t give up on them. '
 --- !u!4 &2045583196
 Transform:
   m_ObjectHideFlags: 0
