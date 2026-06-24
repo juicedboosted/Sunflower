@@ -13,6 +13,10 @@ public class AppManager : MonoBehaviour
 
     public void BackButton()
     {
+        if (activeApp == null)
+        {
+            return;
+        }
         MessagesManager messagesManagerComponent = activeApp.GetComponent<MessagesManager>();
         if (messagesManagerComponent != null) //if the open app is the messages app
         {

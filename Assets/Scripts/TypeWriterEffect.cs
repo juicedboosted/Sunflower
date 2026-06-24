@@ -6,7 +6,7 @@ public class TypeWriterEffect : MonoBehaviour
 {
     public TMP_Text m_text;
     //delay between each character
-    public float m_delay = 0.2f;
+    public float m_delay = 0.1f;
 
 
     public void DisplayText(string _message)

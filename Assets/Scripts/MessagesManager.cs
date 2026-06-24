@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class MessagesManager : MonoBehaviour
 {
-    public float m_playerMessageOffsetX = 250.0f;
+    public float m_playerMessageOffsetX = 100.0f;
 
     public float m_messageOffset = 200.0f;
     public float m_messageSpacing = 100.0f;
