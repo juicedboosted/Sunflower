@@ -25,6 +25,8 @@ public class AppointmentManager : MonoBehaviour
 
     [SerializeField] private HealthManager m_HealthManager;
 
+    [SerializeField] private TMP_Text m_PrescriptionListText; // what is printed in prescription page of health app
+
     private int m_Option1Index;
     private int m_Option2Index;
 
@@ -115,6 +117,17 @@ public class AppointmentManager : MonoBehaviour
         newPrescription.m_PrescriptionQuantity = _option.m_prescriptionQuantity;
 
         m_Prescriptions.Add(newPrescription);
+        UpdatePrescriptionDisplay();
+    }
+
+    public void UpdatePrescriptionDisplay()
+    {
+        m_PrescriptionListText.text = "";
+
+        foreach (Prescription prescription in m_Prescriptions)
+        {
+            m_PrescriptionListText.text += prescription.m_PrescriptionName + " " + prescription.m_PrescriptionQuantity + "\n\n";
+        }
     }
 
     public void CloseAppt()

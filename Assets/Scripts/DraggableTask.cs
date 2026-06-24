@@ -5,22 +5,21 @@ using UnityEngine.UI;
 
 public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    //task info
     public string m_taskName;
     public int m_energyCost;
     public TMP_Text m_taskText;
-
-    //visual energy icons
     public Image[] m_energyBolts;
+    public TaskType m_taskType;
 
     public bool m_hasSpentEnergy = false;
+    public bool m_isScheduled = false;
     
     private Canvas m_canvas;
     private RectTransform m_rectTransform;
     private CanvasGroup m_canvasGroup;
     private Transform m_originalParent;
 
-    // cache ui when created
+
     void Awake()
     {
         m_rectTransform = GetComponent<RectTransform>();
@@ -32,21 +31,17 @@ public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         Debug.Log("Dragging: " + gameObject.name);
         m_originalParent = transform.parent;
-
-        //move task to top canvas layer
         transform.SetParent(m_canvas.transform, true);
         transform.SetAsLastSibling();
         m_canvasGroup.blocksRaycasts = false;
     }
 
-    //move task with cursor
     public void OnDrag(PointerEventData _eventData)
     {
         m_rectTransform.anchoredPosition += _eventData.delta / m_canvas.scaleFactor;
 
     }
 
-    //move task back to original position if movement is not valid
     public void OnEndDrag(PointerEventData _eventData)
     {
         m_canvasGroup.blocksRaycasts = true;
@@ -57,16 +52,15 @@ public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
-    //assign task details
-    public void SetTask(string _name, int _cost)
+    public void SetTask(string _name, int _cost, TaskType _type)
     {
         m_taskName = _name;
         m_energyCost = _cost;
+        m_taskType = _type;
         m_taskText.text = m_taskName;
         UpdateEnergyIcons();
     }
 
-    //display energy cost using icons
     public void UpdateEnergyIcons()
     {
         int bolts = m_energyCost / 10;
