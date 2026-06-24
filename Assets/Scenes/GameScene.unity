@@ -1758,37 +1758,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 426551181115789702, guid: cc59e92b0075aef46b4a67546645f0f3, type: 3}
   m_PrefabInstance: {fileID: 244354511}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &368079286
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 368079287}
-  m_Layer: 0
-  m_Name: MusicManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &368079287
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 368079286}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 730.1654, y: 337.01633, z: -2.583963}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &388915101
 GameObject:
   m_ObjectHideFlags: 0
@@ -6153,7 +6122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 63.509, y: 325}
+  m_AnchoredPosition: {x: 68, y: 413}
   m_SizeDelta: {x: 449.7534, y: 55.264}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2047184026
@@ -7039,6 +7008,5 @@ SceneRoots:
   - {fileID: 2045583196}
   - {fileID: 872873325}
   - {fileID: 714320999}
-  - {fileID: 368079287}
   - {fileID: 718335508}
   - {fileID: 233859474}

@@ -40,6 +40,7 @@ public class CalendarManager : MonoBehaviour
 
     void Start()
     {
+        m_dayNumber = 0;
         UpdateDateText();
         GenerateRandomTasks();
 
@@ -103,9 +104,10 @@ public class CalendarManager : MonoBehaviour
 
     public void NextDay()
     {
-        if (m_dayNumber >= 5)
+        if (m_dayNumber >= m_daysOfWeek.Length - 1)
         {
             m_fadeManager.FadeToBlack();
+            return;
         }
 
         m_dayNumber++;
@@ -171,7 +173,7 @@ public class CalendarManager : MonoBehaviour
     {
         if (m_dateText != null)
         {
-            int dayIndex = Mathf.Clamp(m_dayNumber - 1, 0, m_daysOfWeek.Length - 1);
+            int dayIndex = Mathf.Clamp(m_dayNumber, 0, m_daysOfWeek.Length - 1);
             m_dateText.text = m_daysOfWeek[dayIndex];
         }
     }
