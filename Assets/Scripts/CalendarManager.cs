@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class CalendarManager : MonoBehaviour
 {
@@ -41,7 +42,8 @@ public class CalendarManager : MonoBehaviour
     {
         UpdateDateText();
         GenerateRandomTasks();
-       
+
+        AddTomorrowTask("See Martin", 30);
     }
 
     public void SpawnPanel()
@@ -119,6 +121,7 @@ public class CalendarManager : MonoBehaviour
             case 1:
                 {
                     m_SocialEventLoader.LoadEvent("SocialEvents/Day1");
+                    AddTomorrowTask("Beach party", 80);
                     break;
                 }
             case 2:
@@ -129,6 +132,7 @@ public class CalendarManager : MonoBehaviour
             case 3:
                 {
                     m_SocialEventLoader.LoadEvent("SocialEvents/Day3");
+                    AddTomorrowTask("Have Wiremu over", 20);
                     break;
                 }
             case 4:
