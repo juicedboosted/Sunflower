@@ -109,6 +109,10 @@ public class CalendarManager : MonoBehaviour
             m_fadeManager.FadeToBlack();
             return;
         }
+        else
+        {
+            m_fadeManager.FadeToNextDay();
+        }
 
         m_dayNumber++;
         Debug.Log("Day number " + m_dayNumber);
