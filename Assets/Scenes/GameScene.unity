@@ -6716,7 +6716,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -163.63293
+      value: -342.69
       objectReference: {fileID: 0}
     - target: {fileID: 359319035855873736, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6754,6 +6754,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 717567473914735485, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 366.4077
+      objectReference: {fileID: 0}
+    - target: {fileID: 717567473914735485, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 611.447
+      objectReference: {fileID: 0}
+    - target: {fileID: 717567473914735485, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.4823
+      objectReference: {fileID: 0}
+    - target: {fileID: 717567473914735485, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15.9188
+      objectReference: {fileID: 0}
     - target: {fileID: 1413290373918241084, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
       propertyPath: m_Name
       value: SettingsApp
@@ -6764,19 +6780,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2864179397889380212, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 279.4882
+      value: 384.7496
       objectReference: {fileID: 0}
     - target: {fileID: 2864179397889380212, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 451.2761
+      value: 628.4882
       objectReference: {fileID: 0}
     - target: {fileID: 2864179397889380212, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.7
+      value: 0.2881
       objectReference: {fileID: 0}
     - target: {fileID: 2864179397889380212, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.6232
+      value: 17.225
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165432414898819810, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_text
+      value: 'How To Play:
+
+        Sunflower takes place over the course of five
+        days. CLICK THE PHONE''S OFF BUTTON TO PROCEED TO THE NEXT DAY.
+
+
+        -
+        Check your messages and chat to your friends in the messages app
+
+        -
+        Plan out your day in the calendar app
+
+        - Book a doctor''s appointment
+        and manage your medicine in the health app
+
+
+        KEEP AN EYE ON YOUR
+        ENERGY AND HEALTH LEVELS
+
+        Doing anything could lower your energy
+        or your health. Be careful.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165432414898819810, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_fontSize
+      value: 22.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165432414898819810, guid: b585dfc948f514244adbaefa4d7c5a13, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 22.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
