@@ -33,6 +33,7 @@ public class TimeSlot : MonoBehaviour, IDropHandler
                 m_trackerManager.AddScheduledTask();
                 dragTask.m_hasSpentEnergy = true;
                 MoveTask(taskObject);
+                dragTask.m_isScheduled = true;
             }
         }
         else
@@ -41,9 +42,15 @@ public class TimeSlot : MonoBehaviour, IDropHandler
         }
     }
 
-private void MoveTask(GameObject _taskObject)
+    private void MoveTask(GameObject _taskObject)
     {
         _taskObject.transform.SetParent(transform, false);
         _taskObject.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+
+        DraggableTask task = _taskObject.GetComponent<DraggableTask>();
+        if (task != null)
+        {
+            task.m_isScheduled = true;
+        }
     }
 }

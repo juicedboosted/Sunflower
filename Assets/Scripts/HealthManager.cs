@@ -8,6 +8,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] GameObject m_virtualApptPage;
 
     [SerializeField] AppManager appManager;
+    [SerializeField] CalendarManager calendarManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
@@ -39,12 +40,17 @@ public class HealthManager : MonoBehaviour
     }
     public void StartAppt()
     {
-        // only do this function if it is the scheduled appointment time from the calendar
-        m_mainPage.SetActive(false);
-        m_bookingPage.SetActive(false);
-        m_prescriptionPage.SetActive(false);
-        m_virtualApptPage.SetActive(true);
-        // start dialogue system
+        if (calendarManager != null && calendarManager.HasAppointmentScheduled())
+        {
+            m_mainPage.SetActive(false);
+            m_bookingPage.SetActive(false);
+            m_prescriptionPage.SetActive(false);
+            m_virtualApptPage.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("No appointment scheduled today.");
+        }
     }
 
     // If the health app is open & not on the main page, the back button will go to the main health page rather than closing the app.
@@ -62,5 +68,10 @@ public class HealthManager : MonoBehaviour
         {
             appManager.CloseApp();
         }
+    }
+
+    public void BookDrAppointment()
+    {
+        calendarManager.AddTomorrowTask("Appointment", 40, TaskType.Appointment);
     }
 }

@@ -9,8 +9,10 @@ public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public int m_energyCost;
     public TMP_Text m_taskText;
     public Image[] m_energyBolts;
+    public TaskType m_taskType;
 
     public bool m_hasSpentEnergy = false;
+    public bool m_isScheduled = false;
     
     private Canvas m_canvas;
     private RectTransform m_rectTransform;
@@ -50,10 +52,11 @@ public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
-    public void SetTask(string _name, int _cost)
+    public void SetTask(string _name, int _cost, TaskType _type)
     {
         m_taskName = _name;
         m_energyCost = _cost;
+        m_taskType = _type;
         m_taskText.text = m_taskName;
         UpdateEnergyIcons();
     }

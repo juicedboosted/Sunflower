@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor;
 
 public class CalendarManager : MonoBehaviour
 {
@@ -81,7 +82,7 @@ public class CalendarManager : MonoBehaviour
 
             if (draggableTask != null)
             {
-                draggableTask.SetTask(selectedTask.m_taskName, selectedTask.m_energyCost);
+                draggableTask.SetTask(selectedTask.m_taskName, selectedTask.m_energyCost, selectedTask.m_taskType);
             }
             tempTasks.RemoveAt(randomIndex);
 
@@ -92,7 +93,7 @@ public class CalendarManager : MonoBehaviour
                 DraggableTask tomorrowDraggableTask = tomorrowTask.GetComponent<DraggableTask>();
                 if (tomorrowDraggableTask != null)
                 {
-                    tomorrowDraggableTask.SetTask(queuedTask.m_taskName, queuedTask.m_energyCost);
+                    tomorrowDraggableTask.SetTask(queuedTask.m_taskName, queuedTask.m_energyCost, queuedTask.m_taskType);
                 }
             }
             m_tomorrowTasks.Clear();
@@ -173,14 +174,28 @@ public class CalendarManager : MonoBehaviour
     }
 
     // TOMORROW TASK ADD FUNCTION
-    public void AddTomorrowTask(string _taskName, int _energyCost)
+    public void AddTomorrowTask(string _taskName, int _energyCost, TaskType _type)
     {
         TaskData tomorrowTask = new TaskData();
         tomorrowTask.m_taskName = _taskName;
         tomorrowTask.m_energyCost = _energyCost;
+        tomorrowTask.m_taskType = _type;
 
         m_tomorrowTasks.Add(tomorrowTask);
         Debug.Log("Task added for tomorrow!!! -> " + _taskName);
     }
-}
 
+    public bool HasAppointmentScheduled() // should add enum types to each task so this can be changed to check appointment types scheduled
+    {
+        foreach (Transform slot in m_timeSlotParent)
+        {
+            foreach (Transform child in slot)
+            {
+                DraggableTask task = child.GetComponent<DraggableTask>();
+
+                if (task != null && task.m_taskType == TaskType.Appointment) { return true; }
+            }
+        }
+        return false;
+    }
+}
